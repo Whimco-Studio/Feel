@@ -119,12 +119,13 @@ end
 function Camera:GetMode() end
 
 function Camera:Set(Mode: string)
-	self.Mode = Mode
+	self.Mode = Mode or "Default"
 
 	self:Disconnect()
 
 	if Mode == "Default" or Mode == "Custom" or Mode == nil then
-		return Camera:Disconnect()
+		self.Camera.CameraType = Enum.CameraType.Custom
+		return self:Disconnect()
 	end
 
 	self.Active = true
