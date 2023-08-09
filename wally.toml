@@ -1,0 +1,10 @@
+[package]
+name = "trendonrobinson/feel-library"
+description = "A library that is used"
+version = "1.0.0"
+authors = ["The_Pr0fessor"]
+realm = "shared"
+registry = "https://github.com/UpliftGames/wally-index"
+license = "MIT"
+
+[dependencies]
