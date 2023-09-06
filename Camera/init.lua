@@ -95,6 +95,7 @@ function Camera.new(Ignorables)
 
 		Binds = {},
 		Connections = {},
+		Ignorables = Ignorables or {},
 
 		LerpRate = 0.5,
 		TargetCF = CFrame.new(),
@@ -259,7 +260,6 @@ function Camera:Enable()
 end
 
 function Camera:Disconnect()
-	print(self)
 	for index, Connection in pairs(self.Connections) do
 		Connection:Disconnect()
 	end

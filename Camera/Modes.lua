@@ -25,7 +25,7 @@ function Modes.LerpSpring(self)
 	local Rot = CFrame.new()
 
 	local Character = GetCharacter(self.Player)
-	local Root = Character:WaitForChild("HumanoidRootPart")
+	local Root = self.Subject or Character:WaitForChild("HumanoidRootPart")
 
 	self.TargetCF = CFrame.new((CFrame.new(Root.CFrame.Position) * CFrame.new(0, 0, 12)).Position, Root.Position)
 	self.Spring.target = self.TargetCF.Position
@@ -52,12 +52,12 @@ function Modes.LerpSpring(self)
 		end
 
 		Character = GetCharacter(self.Player)
-		Root = Character:WaitForChild("HumanoidRootPart")
+		Root = self.Subject or Character:WaitForChild("HumanoidRootPart")
 
 		self.Camera.CameraType = Enum.CameraType.Scriptable
 
 		local raycastParams = RaycastParams.new()
-		raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+		raycastParams.FilterType = Enum.RaycastFilterType.Exclude
 		raycastParams.FilterDescendantsInstances = {
 			Character:GetDescendants(),
 			self.Ignorables,
@@ -128,7 +128,7 @@ function Modes.FreeCam(self)
 		local Speed = HoldingShift and 5 or 1.5
 
 		local raycastParams = RaycastParams.new()
-		raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+		raycastParams.FilterType = Enum.RaycastFilterType.Exclude
 		raycastParams.FilterDescendantsInstances = {
 			self.Ignorables, --:GetDescendants(),
 		}
